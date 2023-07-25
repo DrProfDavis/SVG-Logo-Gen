@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // writeToFile function that takes the input from questions to generate svg file
-function writeToFile(answers){
+function writeToFile(answers) {
     // Text
 
     // Text Color
@@ -15,13 +15,45 @@ function writeToFile(answers){
 
 // questions function that asks for input from the user
 function questions() {
-    // Text
-
-    // Text Color
-
-    // Shape
-
-    // Shape Color
+    inquirer
+        .prompt([
+            // Text
+            {
+                type: "input",
+                message: "Enter up to three characters for the logo",
+                name: "text",
+            },
+            // Text Color
+            {
+                type: "input",
+                message: "Choose text color for the logo (color keyword OR a hexadecimal number)",
+                name: "textColor",
+            },
+            // Shape
+            {
+                type: "list",
+                message: "Choose a shape for the logo",
+                choices: ["Square", "Circle", "Triangle"],
+                name: "shape",
+            },
+            // Shape Color
+            {
+                type: "input",
+                message: "Choose shape color for the logo (color keyword OR a hexadecimal number)",
+                name: "shapeColor",
+            },
+        ])
+        .then((answers) => {
+            // Error handling for text
+            if (answers.text.length > 3) {
+                console.log("Please have no more than 3 characters");
+                questions();
+                // TODO Add Another error handling for colors
+            } else {
+                // Calling write file function to generate SVG file
+                writeToFile(answers);
+            }
+        });
 }
 
 
