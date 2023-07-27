@@ -17,9 +17,15 @@ function writeToFile(answers) {
         snippet += `${answers.shape}<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
     }
     // Text snippet
-    snippet += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text></g></svg>`
+    snippet += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text></g></svg>`;
 
-    console.log(snippet)
+    // Name the logo
+    let logoName = `${answers.shapeColor}_${answers.shape}_${answers.text}_logo`
+    console.log(logoName);
+
+    fs.writeFile(`./examples/${logoName}.svg`, snippet, (err) => {
+        err ? console.log(err) : console.log(`Generated ${logoName}.svg`);
+    });
 }
 
 // questions function that asks for input from the user
