@@ -1,9 +1,12 @@
 // Import Inquirer, fs, and shapes
 const inquirer = require('inquirer');
 const fs = require('fs');
+const {Triangle, Square, Circle} = require("./lib/shapes");
 
-// writeToFile function that takes the input from questions to generate svg file
+// writeToFile function that takes the input from questions and calls shapes.js
 function writeToFile(answers) {
+    // Size
+    let snippet = '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">'
     // Text
 
     // Text Color
@@ -55,7 +58,7 @@ function questions() {
         });
 }
 
-
+questions();
 
 
 
