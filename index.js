@@ -50,7 +50,6 @@ function questions() {
                 questions();
                 // TODO Add Another error handling for colors
             } else {
-                // Calling write file function to generate SVG file
                 writeToFile(answers);
             }
         });
