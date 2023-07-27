@@ -8,7 +8,7 @@ var height = 200;
 function writeToFile(answers) {
     // Size snippet
     let snippet = `<svg version="1.1" width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><g>`
-
+    // Shape snippet
     if (answers.shape === "Triangle") {
         snippet += `${answers.shape}<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}"/>`;
     } else if (answers.shape === "Square") {
@@ -16,6 +16,8 @@ function writeToFile(answers) {
     } else {
         snippet += `${answers.shape}<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
     }
+    // Text snippet
+    snippet += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text></g></svg>`
 
     console.log(snippet)
 }
