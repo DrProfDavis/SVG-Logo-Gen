@@ -17,16 +17,16 @@
   -- [Contacts](#contacts)
 
   ## INSTALLATION
-  na
+  Make sure node.js is installed
 
   ## USAGE
-  na
+  Open terminal and type node index.js
 
   ## CONTRIBUTIONS
   na
 
   ## TESTS
-  na
+  In test folder
 
   ## LICENSE 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
