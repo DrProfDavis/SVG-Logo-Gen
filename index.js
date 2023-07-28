@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 var width = 300;
 var height = 200;
+const {Triangle, Square, Circle} = require("./lib/shapes.js");
 
 // writeToFile function that takes the input from questions and calls shapes.js
 function writeToFile(answers) {
@@ -10,11 +11,14 @@ function writeToFile(answers) {
     let snippet = `<svg version="1.1" width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg"><g>`
     // Shape snippet
     if (answers.shape === "Triangle") {
-        snippet += `${answers.shape}<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeColor}"/>`;
+        let userShape = new Triangle(answers.shapeColor)
+        snippet += userShape.render()
     } else if (answers.shape === "Square") {
-        snippet += `${answers.shape}<rect x="73" y="40" width="160" height="160" fill="${answers.shapeColor}"/>`;
+        let userShape = new Square(answers.shapeColor)
+        snippet += userShape.render()
     } else {
-        snippet += `${answers.shape}<circle cx="150" cy="115" r="80" fill="${answers.shapeColor}"/>`;
+        let userShape = new Circle(answers.shapeColor)
+        snippet += userShape.render()
     }
     // Text snippet
     snippet += `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text></g></svg>`;
